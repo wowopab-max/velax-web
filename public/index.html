@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111019"><meta name="description" content="VELAX Media Toolkit — ekstrak informasi media dan tautan dari platform yang didukung.">
+  <title>VELAX — Media Toolkit</title><link rel="stylesheet" href="/style-velax.css">
+</head>
+<body class="velax-loading">
+<div class="page-loader" id="page-loader" aria-label="Memuat VELAX"><div class="loader-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h7l4 12 4-12h7L18 26h-5z" fill="currentColor"/></svg></div><strong>VELAX<span>.</span></strong><div class="loader-track"><i></i></div><small>MENYIAPKAN WORKSPACE</small></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="VELAX Home"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h7l4 12 4-12h7L18 26h-5z" fill="currentColor"/></svg></span><span>VELAX<span class="brand-dot">.</span><small>MEDIA TOOLKIT</small></span></a>
+      <button class="nav-link active" data-view="home"><span class="nav-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span> Beranda</button>
+      <button class="nav-link" data-view="history"><span class="nav-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg></span> Riwayat <b id="history-count">0</b></button>
+      <button class="nav-link" data-view="platforms"><span class="nav-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span> Platform</button>
+      <div class="sidebar-spacer"></div>
+      <div class="side-note"><span class="status-dot"></span><div><strong>Mesin lokal</strong><small id="api-status">Memeriksa backend…</small></div></div>
+      <p class="sidebar-foot">UI untuk library Scrapr open-source.</p>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="icon-btn mobile-menu" id="menu-toggle" aria-label="Buka menu">☰</button><div class="breadcrumb">Workspace <span>/</span> <b id="crumb-title">Beranda</b></div><div class="top-actions"><span class="privacy-pill">● Diproses oleh backend</span><button class="icon-btn" id="theme-toggle" title="Ganti tema" aria-label="Ganti tema">◐</button></div></header>
+      <section class="view active" id="view-home">
+        <div class="hero"><div class="hero-copy"><div class="eyebrow"><span class="spark">✦</span> UNIVERSAL MEDIA EXTRACTOR</div><h1>Satu tautan.<br><em>Banyak kemungkinan.</em></h1><p>Ekstrak informasi media dan cari tautan unduhan dari platform yang didukung Scrapr.</p><div class="hero-chips"><span>Video</span><span>Audio</span><span>File</span><span>Shortlink</span></div></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="art-core">S<span>↘</span></div><i class="float-card card-a">▶ <b>MP4</b></i><i class="float-card card-b">♫ <b>MP3</b></i><i class="float-card card-c">↗ <b>LINK</b></i></div></div>
+        <section class="extract-card" id="extract-card"><div class="section-heading"><div><span class="step-label">01 / EXTRACT</span><h2>Masukkan tautan</h2><p>Pilih platform dan metode, lalu mulai ekstraksi.</p></div><span class="secure-label">⌁ URL publik saja</span></div>
+          <form id="extract-form"><label for="media-url">URL MEDIA / FILE</label><div class="url-input-wrap"><span class="link-symbol">↗</span><input id="media-url" name="url" type="url" placeholder="Tempel tautan di sini…" autocomplete="url" required maxlength="3000"><button type="button" id="paste-btn" class="paste-btn">Tempel</button></div>
+            <div class="form-grid"><div><label for="platform-select">PLATFORM</label><select id="platform-select" required></select></div><div><label for="method-select">METODE SCRAPER</label><select id="method-select" required></select></div></div>
+            <div class="form-bottom"><p><span class="info-icon">i</span> Jika satu metode gagal, coba metode lain untuk platform yang sama.</p><button class="primary-btn" type="submit" id="extract-btn"><span>Ekstrak media</span><b>↗</b></button></div>
+          </form>
+        </section>
+        <section class="result-section hidden" id="result-section"><div class="section-heading"><div><span class="step-label">02 / RESULT</span><h2>Hasil ekstraksi</h2><p id="result-subtitle">Hasil dari metode yang dipilih.</p></div><button class="ghost-btn" id="clear-result">Hapus hasil ×</button></div><div id="result-content"></div></section>
+        <section class="platform-section"><div class="section-heading compact"><div><span class="step-label">SUPPORTED SOURCES</span><h2>Platform yang tersedia</h2></div><button class="text-btn" data-goto="platforms">Lihat semua ↗</button></div><div class="platform-grid" id="featured-platforms"></div></section>
+        <footer>Gunakan hanya untuk media yang boleh kamu akses atau unduh. Ketersediaan scraper bergantung pada situs sumber dan dapat berubah.</footer>
+      </section>
+      <section class="view" id="view-history"><div class="page-heading"><span class="step-label">YOUR ACTIVITY</span><h1>Riwayat ekstraksi</h1><p>Riwayat disimpan di browser perangkat ini saja.</p><button id="clear-history" class="ghost-btn">Hapus semua riwayat</button></div><div id="history-list" class="history-list"></div></section>
+      <section class="view" id="view-platforms"><div class="page-heading"><span class="step-label">SOURCE DIRECTORY</span><h1>Platform & metode</h1><p>Semua namespace dan metode yang diekspor oleh library scraper yang tersedia di proyek ini.</p></div><div class="platform-toolbar"><input id="platform-search" type="search" placeholder="Cari platform atau metode…"><span id="platform-total" class="count-pill">Memuat…</span></div><div id="all-platforms" class="all-platforms"></div></section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app-velax.js" defer></script>
+</body></html>

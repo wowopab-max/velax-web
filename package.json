@@ -1,0 +1,21 @@
+{
+  "name": "scrapr-web-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Responsive web interface for the Scrapr media extractor library",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "axios": "^1.7.0",
+    "cheerio": "^1.0.0"
+  }
+}
